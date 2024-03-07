@@ -8,7 +8,7 @@ public class DogGenetics {
         System.out.println("What is your dog's name?");
         String dogName = myScanner.nextLine();
 
-        System.out.println("Well then, I have this highly reliable report on " + dogName +"'s prestigious background right here.");
+        System.out.println("Well then, I have this highly reliable report on " + dogName + "'s prestigious background right here.");
 
         Random myRng = new Random();
         byte remainingPercentage = 100;
