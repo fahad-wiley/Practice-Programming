@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Exercise1Basics/Exercise1Basics.iml" filepath="$PROJECT_DIR$/Exercise1Basics/Exercise1Basics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exercise3Scanner/Exercise3Scanner.iml" filepath="$PROJECT_DIR$/Exercise3Scanner/Exercise3Scanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exercise4IfElse/Exercise4IfElse.iml" filepath="$PROJECT_DIR$/Exercise4IfElse/Exercise4IfElse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exercise5Random/Exercise5Random.iml" filepath="$PROJECT_DIR$/Exercise5Random/Exercise5Random.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exercise6WhilesDos/Exercise6WhilesDos.iml" filepath="$PROJECT_DIR$/Exercise6WhilesDos/Exercise6WhilesDos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exercise8Methods/Exercise8Methods.iml" filepath="$PROJECT_DIR$/Exercise8Methods/Exercise8Methods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exercise9Arrays/Exercise9Arrays.iml" filepath="$PROJECT_DIR$/Exercise9Arrays/Exercise9Arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Factoriser/Factoriser.iml" filepath="$PROJECT_DIR$/Factoriser/Factoriser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interest Calculator/Interest Calculator.iml" filepath="$PROJECT_DIR$/Interest Calculator/Interest Calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LuckySevens/LuckySevens.iml" filepath="$PROJECT_DIR$/LuckySevens/LuckySevens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Practice-Programming.iml" filepath="$PROJECT_DIR$/.idea/Practice-Programming.iml" />
+    </modules>
+  </component>
+</project>
