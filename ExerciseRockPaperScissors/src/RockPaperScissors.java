@@ -1,9 +1,10 @@
-package src;
-
 import java.util.Random;
 import java.util.Scanner;
 
 public class RockPaperScissors {
+    public static void showCurrentScore(int playerWinCount, int computerWinCount) {
+        System.out.println("Current players wins: " + playerWinCount + ". Computer wins: " + computerWinCount + ".\n");
+    }
     public static void main(String[] args) {
 
         Scanner myScanner = new Scanner(System.in);
@@ -17,7 +18,8 @@ public class RockPaperScissors {
             System.out.println("Please give an answer within the range.");
         }
 
-        Random myRng = new Random(); // Instantiate this object once outside the loop, because can just use one instead of every iteration have another one
+        Random myRng = new Random(); // Instantiate this object once outside the loop,
+        // because can use one instead of every iteration have another one
         int playerWinCount = 0; // int in case player wins more than 127 games
         int computerWinCount = 0;
 
@@ -26,7 +28,7 @@ public class RockPaperScissors {
             byte playerChoice;
             byte computerChoice;
             System.out.println("-------");
-            System.out.println("Current players wins: " + playerWinCount + ". Computer wins: " + computerWinCount + ".\n");
+            showCurrentScore(playerWinCount, computerWinCount);
             do {
                 System.out.println("Make your choice! 1 = Rock, 2 = Paper, 3 = Scissors");
                 playerChoice = Byte.parseByte(myScanner.nextLine());
@@ -48,7 +50,6 @@ public class RockPaperScissors {
                 case 3:
                     System.out.print("Scissors.\n");
                     break;
-
             }
 
 
@@ -61,15 +62,15 @@ public class RockPaperScissors {
                 System.out.println("You win!");
                 playerWinCount++;
             }
-            else {
+            else { // if the player hasn't won, the computer must've won
                 System.out.println("Computer wins!");
                 computerWinCount++;
             }
 
         }
 
-        System.out.println("Game has ended!");
-
+        System.out.println("\nGame has ended!");
+        showCurrentScore(playerWinCount, computerWinCount);
         if (playerWinCount > computerWinCount) System.out.println("You have bested the computer!");
         else if (playerWinCount < computerWinCount) System.out.println("You are equally matched with the computer!");
         else System.out.println("The computer must know something you don't, it bested you!");
