@@ -30,16 +30,22 @@ public class App {
         SimpleCalculator calc = new SimpleCalculator(); // instantiate SimpleCalculator object
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("What is the first operand? ");
-        double firstOperand = Double.parseDouble(sc.nextLine());
+        while(true) {
+            System.out.print("What is the first operand? ");
+            double firstOperand = Double.parseDouble(sc.nextLine());
 
-        System.out.print("What operator? (+, -, *, /) ");
-        String operator = sc.nextLine();
+            System.out.print("What operator? (+, -, *, /) ");
+            String operator = sc.nextLine();
 
-        System.out.print("What is the second operand? ");
-        double secondOperand = Double.parseDouble(sc.nextLine());
+            System.out.print("What is the second operand? ");
+            double secondOperand = Double.parseDouble(sc.nextLine());
 
-        double answer = returnAnswer(firstOperand, secondOperand, operator, calc);
-        System.out.println("Your answer is : " + answer);
+            double answer = returnAnswer(firstOperand, secondOperand, operator, calc);
+            if (answer == Double.NEGATIVE_INFINITY) {
+                System.out.println("Please ensure to type a number for the operands and choose one of the four operator symbols for the operator!");
+                continue;
+            }
+            System.out.println("Your answer is : " + answer);
+        }
     }
 }
