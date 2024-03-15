@@ -19,7 +19,7 @@ public class AddressBookDaoImpl implements AddressBookDao {
     }
 
     @Override
-    public Map<String, Address> getAllStudents() {
+    public Map<String, Address> getAllAddresses() {
         return addresses;
     }
 
@@ -31,5 +31,13 @@ public class AddressBookDaoImpl implements AddressBookDao {
     @Override
     public Address removeAddress(String addressName) {
         return addresses.remove(addressName);
+    }
+
+    @Override
+    public boolean addressExists(String houseNameOrNumber, String postcode) {
+        for (Address address : addresses.values()) {
+            if (address.getHouseNameOrNumber().equals(houseNameOrNumber) && address.getPostcode().equals(postcode)) return true;
+        }
+        return false;
     }
 }

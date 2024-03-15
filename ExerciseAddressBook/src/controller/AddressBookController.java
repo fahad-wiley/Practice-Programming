@@ -2,7 +2,11 @@ package controller;
 
 import dao.AddressBookDao;
 import dao.AddressBookDaoImpl;
+import dao.AddressBookPersistenceException;
 import dto.Address;
+import service.AddressBookDataValidationException;
+import service.AddressBookDuplicateIdException;
+import service.AddressBookServiceLayerImpl;
 import ui.AddressBookView;
 import ui.UserIO;
 import ui.UserIOConsoleImpl;
@@ -12,18 +16,16 @@ import java.util.List;
 import java.util.Map;
 
 public class AddressBookController {
-    private AddressBookDaoImpl dao = new AddressBookDaoImpl();
-    //private AddressBookServiceLayer service;
     private UserIO io = new UserIOConsoleImpl();
-    private AddressBookView view = new AddressBookView(io);
+    private AddressBookView view;
+    private AddressBookServiceLayerImpl service;
 
-
-    public AddressBookController (AddressBookView view) {
-        //this.service = service;
+    public AddressBookController (AddressBookServiceLayerImpl service ,AddressBookView view) {
+        this.service = service;
         this.view = view;
     }
 
-    public void run() {
+    public void run() throws AddressBookDuplicateIdException, AddressBookDataValidationException, AddressBookPersistenceException {
         boolean keepGoing = true;
         int menuSelection = 0;
         while (keepGoing) {
@@ -55,27 +57,27 @@ public class AddressBookController {
     }
 
 
-    private void listAddresses() {
-        Map<String, Address> addressList = dao.getAllStudents();
+    private void listAddresses() throws AddressBookPersistenceException {
+        Map<String, Address> addressList = service.getAllAddresses();
         view.displayAddressList(addressList);
     }
-    private void createAddress() {
+    private void createAddress() throws AddressBookDuplicateIdException, AddressBookDataValidationException, AddressBookPersistenceException {
         view.displayCreateAddressBanner();
         String addressName = view.getNewAddressName();
         Address addressToBeAdded = view.getNewAddressInfo();
-        dao.addAddress(addressName, addressToBeAdded);
+        service.createAddress(addressName, addressToBeAdded);
         view.displaySuccessAddressBanner();
     }
-    private void viewAddresses() {
+    private void viewAddresses() throws AddressBookPersistenceException {
         view.displayViewAddressBanner();
         String addressName = view.getAddressName();
-        Address addressToShow = dao.getAddress(addressName);
+        Address addressToShow = service.getAddress(addressName);
         view.displayAddress(addressToShow);
     }
-    private void removeAddress() {
+    private void removeAddress() throws AddressBookPersistenceException {
         view.displayRemoveAddressBanner();
         String addressNameToRemove = view.getAddressName();
-        dao.removeAddress(addressNameToRemove);
+        service.removeAddress(addressNameToRemove);
     }
     private int getMenuSelection() {
         return view.printMenuAndGetSelection();
